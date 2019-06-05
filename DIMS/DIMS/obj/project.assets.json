@@ -12163,11 +12163,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\github\\DIMS\\DIMS\\DIMS.csproj",
+      "projectUniqueName": "F:\\github\\DIMS\\DIMS\\DIMS\\DIMS.csproj",
       "projectName": "DIMS",
-      "projectPath": "F:\\github\\DIMS\\DIMS\\DIMS.csproj",
+      "projectPath": "F:\\github\\DIMS\\DIMS\\DIMS\\DIMS.csproj",
       "packagesPath": "C:\\Users\\WanQBin\\.nuget\\packages\\",
-      "outputPath": "F:\\github\\DIMS\\DIMS\\obj\\",
+      "outputPath": "F:\\github\\DIMS\\DIMS\\DIMS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "E:\\Microsoft\\Xamarin\\NuGet\\",
@@ -12215,7 +12215,7 @@
             "version": "[2.2.4, )"
           },
           "Microsoft.EntityFrameworkCore.Tools": {
-            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers",
             "suppressParent": "All",
             "target": "Package",
             "version": "[2.2.4, )"
