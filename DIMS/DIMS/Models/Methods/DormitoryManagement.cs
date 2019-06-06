@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DIMS.Models.Tables;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,7 +16,20 @@ namespace DIMS.Models.Methods
         /// <returns></returns>
         public bool SetDormitoryNum(int num)
         {
-            return false;
+            #region
+            using(var dbcontext=new dimsContext())
+            {
+                var query = dbcontext.Studentbuilding
+                    .FromSql("select * from dims.Studentbuilding")
+                    .ToList();
+                foreach(var q in query)
+                {
+                    q.Bdsnum = num;
+                }
+                dbcontext.SaveChanges();
+                return true;
+            }
+            #endregion
         }
         /// <summary>
         /// 修改宿舍楼性别
@@ -23,7 +38,20 @@ namespace DIMS.Models.Methods
         /// <returns></returns>
         public bool SetDormitorySex(string sex)
         {
-            return false;
+            #region
+            using (var dbcontext = new dimsContext())
+            {
+                var query = dbcontext.Studentbuilding
+                    .FromSql("select * from dims.Studentbuilding")
+                    .ToList();
+                foreach (var q in query)
+                {
+                    q.Bsex = sex;
+                }
+                dbcontext.SaveChanges();
+                return true;
+            }
+            #endregion
         }
     }
 }

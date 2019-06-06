@@ -47,7 +47,16 @@ namespace DIMS.Models.Methods
                 return false;
             }
             #endregion
-           
+        }
+        public bool ModifyInfromation(Administer administer,string id)
+        {
+            using(var db=new dimsContext())
+            {
+                var query = db.Administer
+                    .FirstOrDefault(q => q.Ano == id);
+                query = administer;
+                return true;
+            }
         }
 
     }

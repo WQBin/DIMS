@@ -40,7 +40,7 @@ namespace DIMS.Models.Methods
         /// <param name="id">宿管id</param>
         /// <returns></returns>
         public bool DeleteRa(string id)
-        {//有问题
+        {
             #region
             try
             {
@@ -57,6 +57,44 @@ namespace DIMS.Models.Methods
             {
                 return false;
             }
+            #endregion
+        }
+        /// <summary>
+        /// 变更楼管
+        /// </summary>
+        /// <param name="newId"></param>
+        /// <param name="bno"></param>
+        /// <returns></returns>
+        public bool ChangeRaBuiling(string newId, string bno)
+        {
+            #region
+            using (var dbcontext = new dimsContext())
+            {
+                var query = dbcontext.Studentbuilding
+                    .FirstOrDefault(b => b.Bno == bno);
+                if (query != null)
+                {
+                    query.Ano = newId;
+                    dbcontext.SaveChanges();
+                    return true;
+                }
+                else
+                    return false;
+            }
+            #endregion
+        }
+        /// <summary>
+        /// 通过宿管查询楼号
+        /// </summary>
+        /// <param name="ano"></param>
+        /// <returns></returns>
+        public string CheckBuildingThoughAno(string ano)
+        {
+            #region
+            var dbcontext = new dimsContext();
+            var query = dbcontext.Studentbuilding
+                .FirstOrDefault(b => b.Ano == ano);
+            return query.Bno;
             #endregion
         }
         /// <summary>
@@ -80,7 +118,7 @@ namespace DIMS.Models.Methods
                 }
                 else
                     return false;
-                
+
             }
             #endregion
         }
@@ -104,15 +142,33 @@ namespace DIMS.Models.Methods
             #endregion
         }
         /// <summary>
+        /// 根据楼栋号查询楼管
+        /// </summary>
+        /// <param name="bno">楼栋号</param>
+        /// <returns>宿管号</returns>
+        public Administer CheckRaThoughBno(string bno)
+        {
+            #region
+            using (var dbcontext = new dimsContext())
+            {
+                var building = dbcontext.Studentbuilding
+                    .FirstOrDefault(b => b.Bno == bno);
+                string ano = building.Ano;
+                Administer administer = CheckRaThoughID(ano);
+                return administer;
+            }
+            #endregion
+        }
+        /// <summary>
         /// 添加楼栋宿管
         /// </summary>
         /// <param name="aid">宿管id</param>
         /// <param name="Bno">楼栋号</param>
         /// <returns></returns>
-        public bool AddBuildingRa(string aid,string no)
+        public bool AddBuildingRa(string aid, string no)
         {
             #region
-            using(var dbcontext=new dimsContext())
+            using (var dbcontext = new dimsContext())
             {
                 var query = dbcontext.Studentbuilding
                     .FirstOrDefault(b => b.Bno == no);
