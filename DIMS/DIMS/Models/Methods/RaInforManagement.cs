@@ -109,11 +109,23 @@ namespace DIMS.Models.Methods
         /// <param name="aid">宿管id</param>
         /// <param name="Bno">楼栋号</param>
         /// <returns></returns>
-        public bool AddBuildingRa(string aid,string Bno)
+        public bool AddBuildingRa(string aid,string no)
         {
             #region
+            using(var dbcontext=new dimsContext())
+            {
+                var query = dbcontext.Studentbuilding
+                    .FirstOrDefault(b => b.Bno == no);
+                if (query != null)
+                {
+                    query.Ano = aid;
+                    dbcontext.SaveChanges();
+                    return true;
+                }
+                else
+                    return false;
+            }
             #endregion
-            return false;
         }
         /// <summary>
         /// 通过id获取楼管

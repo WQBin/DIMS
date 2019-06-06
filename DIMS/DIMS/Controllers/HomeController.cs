@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DIMS.Models;
+using DIMS.Models.Methods;
 
 namespace DIMS.Controllers
 {
@@ -12,6 +13,9 @@ namespace DIMS.Controllers
     {
         public IActionResult Index()
         {
+            RaInforManagement method = new RaInforManagement();
+
+            method.AddBuildingRa("1607", "1");
             return View();
         }
 
