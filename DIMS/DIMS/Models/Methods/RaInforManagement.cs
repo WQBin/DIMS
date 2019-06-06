@@ -28,7 +28,7 @@ namespace DIMS.Models.Methods
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return false;
             }
@@ -40,20 +40,20 @@ namespace DIMS.Models.Methods
         /// <param name="id">宿管id</param>
         /// <returns></returns>
         public bool DeleteRa(string id)
-        {
+        {//有问题
             #region
             try
             {
                 using (var dbcontext = new dimsContext())
                 {
                     var ra = dbcontext.Administer
-                        .Single(r => r.Ano == id);
+                        .FirstOrDefault(r => r.Ano == id);
                     dbcontext.Administer.Remove(ra);
                     dbcontext.SaveChanges();
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return false;
             }
@@ -95,7 +95,7 @@ namespace DIMS.Models.Methods
             using (var dbcontext = new dimsContext())
             {
                 var ra = dbcontext.Administer
-                    .Single(admin => admin.Ano == id);
+                    .FirstOrDefault(admin => admin.Ano == id);
                 if (ra != null)
                     return ra;
                 else
@@ -103,6 +103,34 @@ namespace DIMS.Models.Methods
             }
             #endregion
         }
-
+        /// <summary>
+        /// 添加楼栋宿管
+        /// </summary>
+        /// <param name="aid">宿管id</param>
+        /// <param name="Bno">楼栋号</param>
+        /// <returns></returns>
+        public bool AddBuildingRa(string aid,string Bno)
+        {
+            #region
+            #endregion
+            return false;
+        }
+        /// <summary>
+        /// 通过id获取楼管
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public Administer GetAdministerThoughID(string id)
+        {
+            #region
+            #endregion
+            return null;
+        }
+        public Administer GetAdministerThoughName(string name)
+        {
+            #region
+            #endregion
+            return null;
+        }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\github\\DIMS\\DIMS\\DIMS.csproj": {}
+    "F:\\github\\DIMS\\DIMS\\DIMS\\DIMS.csproj": {}
   },
   "projects": {
-    "F:\\github\\DIMS\\DIMS\\DIMS.csproj": {
+    "F:\\github\\DIMS\\DIMS\\DIMS\\DIMS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\github\\DIMS\\DIMS\\DIMS.csproj",
+        "projectUniqueName": "F:\\github\\DIMS\\DIMS\\DIMS\\DIMS.csproj",
         "projectName": "DIMS",
-        "projectPath": "F:\\github\\DIMS\\DIMS\\DIMS.csproj",
+        "projectPath": "F:\\github\\DIMS\\DIMS\\DIMS\\DIMS.csproj",
         "packagesPath": "C:\\Users\\WanQBin\\.nuget\\packages\\",
-        "outputPath": "F:\\github\\DIMS\\DIMS\\obj\\",
+        "outputPath": "F:\\github\\DIMS\\DIMS\\DIMS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "E:\\Microsoft\\Xamarin\\NuGet\\",

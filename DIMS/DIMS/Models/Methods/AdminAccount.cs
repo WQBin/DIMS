@@ -37,10 +37,11 @@ namespace DIMS.Models.Methods
             using(var dbcontext=new dimsContext())
             {
                 var admin = dbcontext.Administer
-                    .Single(a => a.Ano == id && a.Apassword == oldPassword);
+                    .FirstOrDefault(a => a.Ano == id && a.Apassword == oldPassword);
                 if(admin!=null)
                 {
                     admin.Apassword = newPassword;
+                    dbcontext.SaveChanges();
                     return true;
                 }
                 return false;
